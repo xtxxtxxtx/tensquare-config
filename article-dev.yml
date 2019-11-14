@@ -1,8 +1,22 @@
-server:
-  port: 8888
+server: 
+  port: 10004
+spring: 
+  application:  
+    name: tensquare-article #指定服务名
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tensquare_article?characterEncoding=UTF8
+    username: root
+    password: 1234
+  jpa: 
+    database: mysql
+    show-sql: true
+  redis:
+    port: 6379
+    host: localhost
 eureka:
   client:
-    fetch-registry: false
-    registerWithEureka: false
     service-url:
-      defaultZone: http://localhost:${server.port}/eureka/
+      defaultZone: http://localhost:8888/eureka/
+  instance:
+    prefer-ip-address: true
